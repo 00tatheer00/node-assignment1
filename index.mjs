@@ -1,3 +1,4 @@
+import { log } from 'console';
 import { createServer } from 'http';
 import { URL } from 'url';
 
@@ -35,10 +36,10 @@ const server = createServer((req, res) => {
       }
       else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
-        res.end('Not Found');
+        res.end('Not Found page');
       }
 });
 
 server.listen(3000, () => {
-    console.log('Server running on port 3000');
+    console.log(`Server running on port: http://localhost/3000`);
 });
