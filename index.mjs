@@ -33,6 +33,10 @@ const server = createServer((req, res) => {
         res.writeHead(200, { 'Content-Type': 'text/plain' });
         res.end('Hello World! - DELETE Request');
       }
+      else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Not Found');
+      }
 });
 
 server.listen(3000, () => {
