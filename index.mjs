@@ -15,6 +15,16 @@ const server = createServer((req, res) => {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(jsonData);
       }
+      else if (req.method === 'POST' && parsedUrl.pathname === '/post') {
+        let body = '';
+        req.on('data', chunk => {
+          body += chunk;
+        });
+        req.on('end', () => {
+          res.writeHead(200, { 'Content-Type': 'text/plain' });
+          res.end(`Hello World! - POST Request with body: ${body}`);
+        });
+      }
 });
 
 server.listen(3000, () => {
