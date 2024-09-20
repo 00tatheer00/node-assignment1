@@ -25,6 +25,10 @@ const server = createServer((req, res) => {
           res.end(`Hello World! - POST Request with body: ${body}`);
         });
       }
+      else if (req.method === 'PUT' && parsedUrl.pathname === '/put') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(jsonData);
+      }
 });
 
 server.listen(3000, () => {
