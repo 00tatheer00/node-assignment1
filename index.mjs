@@ -29,6 +29,10 @@ const server = createServer((req, res) => {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(jsonData);
       }
+      else if (req.method === 'DELETE' && parsedUrl.pathname === '/delete') {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Hello World! - DELETE Request');
+      }
 });
 
 server.listen(3000, () => {
